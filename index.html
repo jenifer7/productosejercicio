@@ -1,37 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/estilo.css">
-  </head>
-  <body>
-  <div>
-    <div>
-    <h1>Create Product</h1>
-    <form>
-      <label for="nombre">Product Name</label>
-      <input type="text" name="nombreprod" maxlength="99" pattern="[a-zA-Zñá]+" title="Ingresa un nombre" required>
-      <br><br>
-      <label for="">Price</label>
-      <input type="text" name="precio" title="Ingrese el precio" onblur="validateDecimal(this.value)" required pattern="[0-9]+">
-        <p id="alerta"></p>
-      <br><br>
-      <button type="button" name="button">Send</button>
-      <button type="button" name="button">Cancel</button>
-    </form>
-  </div>
-  </div>
-    <script type="text/javascript">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body id="uno">
+  <section class="section">
+    <div  class="container">
+      <h1 class="title">
+        Ingresar Producto
+      </h1>
+      <div  class="field">
+        <div  class="columns is-mobile">
+          <div  class="column is-three-fifths is-offset-one-fifth">
+            <form class="" action="" method="post" name="myfor">
+              <label for="">Nombre Producto</label>
+              <input class="input" type="text" name="nomb" maxlength="99" pattern="[a-zA-Z]+" title="Ingrese nombre del producto" required>
+              <br><br>
+              <label for="">Precio</label>
+              <input class="input" type="text" name="num" id="precio" onblur="guardar()" title="Ingrese precio" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$">
+              <br><br>
+              <input class="button is-dark is-outlined" type="submit" name="accept" value="Ingresar" >
+              <input class="button is-dark is-outlined" type="submit" name="cancel" value="Cancelar">
+            </form>
+          </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <script type="text/javascript">
 
-    function validateDecimal(valor) {
-      var RE = /^\d*\.?\d*$/;
-      if (RE.test(valor)) {
-        document.getElementById("alerta").innerHTML="Precio Correcto";
-      } else {
-        document.getElementById("alerta").innerHTML="Error";
-      }
+  function guardar(){
+    var valor = document.getElementById("precio").value;
+    if(isNaN(valor)){
+      alert("Precio Incorrecto");
+    }else {
+      alert("Precio Correcto");
     }
-    </script>
-  </body>
+  }
+  </script>
+</body>
 </html>

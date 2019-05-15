@@ -4,3 +4,8 @@ input:valid {
 input:invalid {
   border: red 1px solid;
 }
+
+body{
+  margin-top: 150px;
+  margin-left: 150px;
+}
